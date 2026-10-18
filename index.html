@@ -7,12 +7,47 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="card">
-    <h1>My Web Development Lab</h1>
-    <p>ชื่อ: YOUR NAME | รหัสนิสิต: YOUR ID</p>
-    <p id="status">Ready to deploy</p>
-    <button id="helloBtn">Say Hello</button>
+  <header class="topbar">
+    <span class="brand">WebDev Lab</span>
+    <button id="themeBtn" class="ghost" aria-label="สลับธีม">🌙 Dark</button>
+  </header>
+
+  <main class="container">
+    <section class="card hero">
+      <h1>Welcome to My Portfolio 🚀</h1>
+      <!-- Exercise 1: แก้ชื่อและรหัสนิสิตเป็นของตนเอง -->
+      <p>ชื่อ: YOUR NAME | รหัสนิสิต: YOUR ID</p>
+      <p>ยินดีต้อนรับสู่เว็บไซต์ที่ Deploy อัตโนมัติด้วย GitHub Actions + GitHub Pages</p>
+      <p id="status">Ready to deploy</p>
+      <button id="helloBtn">Say Hello</button>
+    </section>
+
+    <section class="card" id="about">
+      <h2>About Me</h2>
+      <p>สวัสดีครับ/ค่ะ ผมเป็นนิสิตที่สนใจด้าน Web Development
+         กำลังเรียนรู้การทำ CI/CD เพื่อให้เว็บไซต์อัปเดตอัตโนมัติทุกครั้งที่ push โค้ด</p>
+    </section>
+
+    <section class="card" id="skills">
+      <h2>Skills</h2>
+      <ul class="skills">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Git &amp; GitHub</li>
+        <li>GitHub Actions</li>
+      </ul>
+    </section>
+
+    <section class="card" id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p>GitHub: <a href="https://github.com/YOUR_USERNAME">github.com/YOUR_USERNAME</a></p>
+    </section>
   </main>
+
+  <footer>Deployed with GitHub Actions · GitHub Pages</footer>
+
   <script src="script.js"></script>
 </body>
 </html>
