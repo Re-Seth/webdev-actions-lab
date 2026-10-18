@@ -17,7 +17,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Job 1: รันเทสต์อัตโนมัติทุกครั้งที่ push / เปิด Pull Request
+  #รันเทสต์อัตโนมัติทุกครั้งที่ push
   test:
     runs-on: ubuntu-latest
     steps:
@@ -27,7 +27,7 @@ jobs:
       - name: Run website tests
         run: bash tests/check.sh
 
-  # Job 2: Deploy เฉพาะเมื่อเทสต์ผ่าน และไม่ใช่ Pull Request
+  #Deployเฉพาะเมื่อเทสต์ผ่านและไม่ใช่ Pull Request
   deploy:
     needs: test
     if: github.event_name != 'pull_request'
