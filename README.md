@@ -9,7 +9,12 @@ LAB: GitHub Actions + GitHub Pages: เว็บไซต์ Static ที่ De
 - [x] Exercise 2: ส่วน About Me, Skills, Contact
 - [x] Exercise 3: ปุ่ม Toggle Theme (Dark/Light) และปุ่ม Say Hello เปลี่ยนข้อความวน
 - [x] Exercise 4 + คำถามท้ายแลป: ดู `LAB-ANSWERS.md`
-- [x] Challenge: step `Check required files` ใช้ `test -f` ก่อน Deploy
+- [x] Challenge: Job `test` รัน `tests/check.sh` (มี `test -f` ตรวจไฟล์ และเทสต์อื่น ๆ) ก่อน Deploy ทุกครั้ง ถ้าเทสต์ไม่ผ่านจะไม่ Deploy
+
+## รันเทสต์ในเครื่อง
+```bash
+bash tests/check.sh
+```
 
 ## สิ่งที่ต้องทำเอง
 1. **Exercise 1:** แก้ `YOUR NAME`, `YOUR ID`, อีเมล และ `YOUR_USERNAME` ใน `index.html` แล้ว commit

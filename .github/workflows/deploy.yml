@@ -3,6 +3,8 @@ name: Deploy Static Website
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,11 +13,24 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  # Job 1: รันเทสต์อัตโนมัติทุกครั้งที่ push / เปิด Pull Request
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v6
+
+      - name: Run website tests
+        run: bash tests/check.sh
+
+  # Job 2: Deploy เฉพาะเมื่อเทสต์ผ่าน และไม่ใช่ Pull Request
   deploy:
+    needs: test
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -23,14 +38,6 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v6
-
-      # Challenge: ตรวจสอบไฟล์ที่จำเป็นก่อน Deploy ถ้าไม่มี Workflow จะ Failed ทันที
-      - name: Check required files
-        run: |
-          for f in index.html style.css script.js; do
-            test -f "$f" || { echo "::error::Missing $f"; exit 1; }
-            echo "Found $f"
-          done
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
