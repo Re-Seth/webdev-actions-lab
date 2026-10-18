@@ -1,19 +1,19 @@
 const status = document.querySelector('#status');
-const messages = ['Hello from GitHub Pages!', 'Deployed by GitHub Actions ✅', 'CI/CD works! 🎉'];
+const messages = ['Hello from GitHub Pages!', 'Deployed by GitHub Actions', 'CI/CD works! แหละ'];
 let count = 0;
 
-// ปุ่ม Say Hello: เปลี่ยนข้อความวนไปเรื่อย ๆ ทุกครั้งที่กด
+// ปุ่ม 
 document.querySelector('#helloBtn').addEventListener('click', () => {
   status.textContent = messages[count % messages.length];
   count++;
 });
 
-// Exercise 3: Toggle Theme (จำค่าที่เลือกไว้ใน localStorage)
+//Toggle Theme
 const themeBtn = document.querySelector('#themeBtn');
 
 function applyTheme(dark) {
   document.body.classList.toggle('dark', dark);
-  themeBtn.textContent = dark ? '☀️ Light' : '🌙 Dark';
+  themeBtn.textContent = dark ? 'Light' : 'Dark';
 }
 
 let saved = null;
